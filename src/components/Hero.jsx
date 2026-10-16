@@ -14,7 +14,7 @@ export default function Hero({ started }) {
       gsap.set(root.current, { autoAlpha: 1 });
       return;
     }
-    const chars = splitChars(root.current.querySelector(".hero-line"));
+    const chars = gsap.utils.toArray(root.current.querySelectorAll(".hero-line")).flatMap((el) => splitChars(el));
     const tl = gsap.timeline({ defaults: { ease: "back.out(1.7)" } });
     tl.fromTo(root.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 })
       .fromTo(chars, { y: 90, rotation: 8, autoAlpha: 0 }, { y: 0, rotation: 0, autoAlpha: 1, duration: 0.7, stagger: 0.03 }, "<")
@@ -51,8 +51,12 @@ export default function Hero({ started }) {
         <p className="hero-sub font-mono2 mb-4 inline-block rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase">
           Google Developer Groups • On Campus
         </p>
-        <h1 className="hero-line font-display text-[11vw] leading-[0.95] sm:text-7xl md:text-8xl">
-          BUILD LEARN INNOVATE
+        <h1 className="font-display text-[13vw] leading-[0.95] sm:text-8xl md:text-9xl">
+          <span className="hero-line block">BUILD</span>
+          <span className="hero-line text-stroke block">LEARN</span>
+          <span className="hero-line block">
+            <span className="bg-[#fbbc05] px-3">INNOVATE</span>
+          </span>
         </h1>
         <p className="hero-sub mx-auto mt-6 max-w-xl text-base font-medium text-[#5b5b55] sm:text-lg">
           GDG IIIT Sri City — workshops, hackathons and study jams.
