@@ -1,0 +1,14 @@
+:root {
+  --paper: #fffcf2;
+  --ink: #111111;
+  --muted: #5b5b55;
+  --line: #e8e2d2;
+  --blue: #4285f4;
+  --red: #ea4335;
+  --yellow: #fbbc05;
+  --green: #34a853;
+  --card: #ffffff;
+  --display: "Archivo Black", "Space Grotesk", system-ui, sans-serif;
+  --sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --mono: "Space Mono", ui-monospace, monospace;
+}
