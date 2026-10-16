@@ -27,7 +27,7 @@ what GDG is, what we do, past events (photos), team, contact. Very interactive /
 | `/`        | Home: preloader, hero, ticker, about, what-we-do, events horizontal, team preview, CTA, footer |
 | `/events`  | Full archive. Reads same data, auto-generates cards + scroll animation. Add event = add object. |
 | `/team`    | Full roster with domain filter. Anchor `#team` on home previews it. |
-| `/contact` | Official reach-out details + join links. No backend, `mailto:` + Google Form link. |
+| `/contact` | Official reach-out details + WhatsApp community link. No backend, `mailto:` + invite link. |
 
 React Router in `src/routes.jsx`. Keep pages thin, sections in `src/components/`.
 
