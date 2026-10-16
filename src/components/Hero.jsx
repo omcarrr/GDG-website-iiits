@@ -51,8 +51,8 @@ export default function Hero({ started }) {
         <p className="hero-sub font-mono2 mb-4 inline-block rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase">
           Google Developer Groups • On Campus
         </p>
-        <h1 className="hero-line font-display text-[13vw] leading-[0.95] sm:text-7xl md:text-8xl">
-          BUILD LEARN SHIP
+        <h1 className="hero-line font-display text-[11vw] leading-[0.95] sm:text-7xl md:text-8xl">
+          BUILD LEARN INNOVATE
         </h1>
         <p className="hero-sub mx-auto mt-6 max-w-xl text-base font-medium text-[#5b5b55] sm:text-lg">
           GDG IIIT Sri City — workshops, hackathons and study jams.

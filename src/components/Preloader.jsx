@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { gsap, useGSAP } from "../lib/gsap";
 
-const words = ["BUILD", "LEARN", "SHIP", "GDG*"];
+const words = ["BUILD", "LEARN", "INNOVATE", "GDG*"];
 const dots = ["#4285f4", "#ea4335", "#fbbc05", "#34a853"];
 
 export default function Preloader({ onDone }) {
@@ -86,7 +86,7 @@ export default function Preloader({ onDone }) {
           ))}
         </div>
 
-        <div ref={word} className="font-display mt-6 text-6xl sm:text-8xl">
+        <div ref={word} className="font-display mt-6 px-4 text-center text-5xl sm:text-8xl">
           BUILD
         </div>
         <p className="font-mono2 mt-3 text-xs font-bold uppercase tracking-widest text-[#5b5b55]">
