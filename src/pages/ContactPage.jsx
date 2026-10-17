@@ -12,14 +12,14 @@ export default function ContactPage() {
         <h1 className="font-display text-4xl sm:text-6xl">Contact us</h1>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=gdg%40iiits.in"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=gdsc%40iiits.in"
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="Mail"
             className="card-shadow rounded-2xl border-2 border-black bg-white p-6 hover:-translate-y-1"
           >
             <div className="font-mono2 text-xs font-bold uppercase opacity-60">Email</div>
-            <div className="font-display mt-2 text-2xl">gdg@iiits.in</div>
+            <div className="font-display mt-2 text-2xl">gdsc@iiits.in</div>
             <div className="mt-2 text-sm text-[#5b5b55]">Official reach-out for collabs, talks, sponsorships.</div>
           </a>
           <div className="card-shadow rounded-2xl border-2 border-black bg-black p-6 text-white">
@@ -30,7 +30,7 @@ export default function ContactPage() {
               {[
                 { name: "Instagram", url: "https://www.instagram.com/gdgiiits/" },
                 { name: "LinkedIn", url: "https://www.linkedin.com/company/gdg-iiits/posts/?feedView=all" },
-                { name: "GitHub", url: "#" }, // TODO: add GDG IIITS GitHub org link
+                { name: "GitHub", url: "https://github.com/GDG-IIITS" },
               ].map((s) => (
                 <a
                   key={s.name}
