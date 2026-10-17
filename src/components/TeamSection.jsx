@@ -41,8 +41,9 @@ export default function TeamSection({ preview = true }) {
               {roleLabel[role]}
             </h3>
             {i === 0 && (
-              <p className="font-mono2 mb-4 flex w-fit items-center gap-2 rounded-full border-2 border-black bg-[#ea4335] px-4 py-1.5 text-xs font-bold uppercase text-white shadow-[3px_3px_0_#000]">
-                Click on the card to flip it <span aria-hidden="true">↙</span>
+              <p className="flip-hint font-mono2 mb-4 flex w-fit items-center gap-2 rounded-full border-2 border-black bg-[#ea4335] px-4 py-1.5 text-xs font-bold uppercase text-white shadow-[3px_3px_0_#000]">
+                Click on the card to flip it{" "}
+                <span className="flip-hint-arrow" aria-hidden="true">↙</span>
               </p>
             )}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
