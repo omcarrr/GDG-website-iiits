@@ -23,7 +23,7 @@ export default function EventsPage() {
         <p className="font-mono2 text-xs font-bold uppercase text-[#5b5b55]">Archive</p>
         <h1 className="font-display text-4xl sm:text-6xl">All events</h1>
         <p className="mt-3 max-w-xl text-[#5b5b55]">
-          To add an event, append an object to <code>src/data/events.js</code> with 2 images —
+          To add an event, append an object to <code>src/data/events.js</code> with 2 cover images and a 6-10 photo gallery —
           it appears here and on home automatically.
         </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
