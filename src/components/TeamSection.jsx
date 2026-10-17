@@ -32,10 +32,7 @@ export default function TeamSection({ preview = true }) {
           </Link>
         )}
       </div>
-      <p className="font-mono2 mt-3 inline-block rounded-full bg-[#fbbc05] px-3 py-1 text-[11px] font-bold uppercase text-black">
-        Click on the card to flip it
-      </p>
-      {order.map((role) => {
+      {order.map((role, i) => {
         const members = list.filter((m) => m.role === role);
         if (!members.length) return null;
         return (
@@ -43,6 +40,11 @@ export default function TeamSection({ preview = true }) {
             <h3 className="font-mono2 mb-4 inline-block rounded-full bg-black px-4 py-1 text-xs font-bold uppercase text-white">
               {roleLabel[role]}
             </h3>
+            {i === 0 && (
+              <p className="font-mono2 mb-4 flex w-fit items-center gap-2 rounded-full border-2 border-black bg-[#ea4335] px-4 py-1.5 text-xs font-bold uppercase text-white shadow-[3px_3px_0_#000]">
+                Click on the card to flip it <span aria-hidden="true">↙</span>
+              </p>
+            )}
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
               {members.map((m) => (
                 <div key={m.name} className="team-card">
