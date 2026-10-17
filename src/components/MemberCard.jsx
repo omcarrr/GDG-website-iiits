@@ -51,7 +51,7 @@ export default function MemberCard({ member }) {
           <span className="h-2 w-10 rounded-full" style={{ background: member.domain ? c : "#fbbc05" }} />
           <h3 className="font-display mt-3 text-base leading-tight">{member.name}</h3>
           <p className="font-mono2 mt-1 text-[11px] font-bold uppercase opacity-60">{member.title}</p>
-          <p className="mt-3 text-xs leading-relaxed opacity-90 sm:text-sm">{member.bio}</p>
+          <p className="mt-3 whitespace-pre-line text-xs leading-relaxed opacity-90 sm:text-sm">{member.bio}</p>
           <div className="mt-auto flex flex-wrap gap-2 pt-4">
             {Object.entries(member.socials ?? {}).map(([name, url]) => (
               <a

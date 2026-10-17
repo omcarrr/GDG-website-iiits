@@ -13,7 +13,7 @@ export const team = [
     title: "Club Coordinator + GDG Organizer",
     domain: null,
     photo: "/images/team/omcarorganizer.jpeg",
-    bio: "",
+    bio: "Mostly debugging code and questioning my life choices.\nInto AI, DSA, and building things that start as “what if?”\nI like turning caffeine-fuelled ideas into actual projects.\nStill learning, still building, and occasionally pretending I know what I’m doing.",
     socials: {
       linkedin: "https://www.linkedin.com/in/omkardhulugade",
       github: "https://github.com/omcarrr",
