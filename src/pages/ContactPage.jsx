@@ -11,7 +11,13 @@ export default function ContactPage() {
         <p className="font-mono2 text-xs font-bold uppercase text-[#5b5b55]">Say hello</p>
         <h1 className="font-display text-4xl sm:text-6xl">Contact us</h1>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <a href="mailto:gdg@iiits.in" data-cursor="Mail" className="card-shadow rounded-2xl border-2 border-black bg-white p-6 hover:-translate-y-1">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=gdg%40iiits.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="Mail"
+            className="card-shadow rounded-2xl border-2 border-black bg-white p-6 hover:-translate-y-1"
+          >
             <div className="font-mono2 text-xs font-bold uppercase opacity-60">Email</div>
             <div className="font-display mt-2 text-2xl">gdg@iiits.in</div>
             <div className="mt-2 text-sm text-[#5b5b55]">Official reach-out for collabs, talks, sponsorships.</div>
@@ -21,16 +27,27 @@ export default function ContactPage() {
             <div className="font-display mt-2 text-2xl">IIIT Sri City</div>
             <div className="mt-2 text-sm opacity-70">Sri City, Andhra Pradesh</div>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["Instagram", "LinkedIn", "GitHub", "YouTube"].map((s) => (
-                <a key={s} href="#" data-cursor="Open" className="font-mono2 rounded-full bg-white px-3 py-1 text-xs font-bold uppercase text-black hover:bg-[#fbbc05]">
-                  {s}
+              {[
+                { name: "Instagram", url: "https://www.instagram.com/gdgiiits/" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/company/gdg-iiits/posts/?feedView=all" },
+                { name: "GitHub", url: "#" }, // TODO: add GDG IIITS GitHub org link
+              ].map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="Open"
+                  className="font-mono2 rounded-full bg-white px-3 py-1 text-xs font-bold uppercase text-black hover:bg-[#fbbc05]"
+                >
+                  {s.name}
                 </a>
               ))}
             </div>
           </div>
         </div>
         <a
-          href="https://chat.whatsapp.com/REPLACE-ME-WITH-YOUR-COMMUNITY-LINK"
+          href="https://chat.whatsapp.com/FeOB3y0AHZ92HrmhnBhyYm"
           target="_blank"
           rel="noreferrer"
           data-cursor="Chat"
