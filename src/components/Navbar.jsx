@@ -10,7 +10,7 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-[80] px-3 pt-3 sm:px-6">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 rounded-2xl border-2 border-black bg-[#fffcf2]/90 px-3 py-2 backdrop-blur">
         <Link to="/" className="flex items-center gap-2" data-cursor="Home">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black font-display text-sm text-white">G</span>
+          <img src="/images/logo/GDG_LOGO.png" alt="GDG Logo" className="h-8 w-8 rounded-full object-contain" />
           <span className="font-display text-sm sm:text-base">GDG <span className="hidden sm:inline">IIIT Sri City</span></span>
         </Link>
         <div className="flex items-center gap-1 sm:gap-2">
