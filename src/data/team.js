@@ -72,7 +72,7 @@ export const team = [
     role: "executive",
     title: "Executive Member — Backend",
     domain: null,
-    photo: "/images/team/Varshik-image.png%20.PNG",
+    photo: "/images/team/Varshik-image.PNG",
     bio: "I’m a passionate computer science student interested in backend development, AI, and building practical solutions to real-world problems. I enjoy exploring new technologies, learning by building projects, and continuously improving my technical skills.",
     socials: {
       linkedin: "https://www.linkedin.com/in/varshik-reddy-459ba4387?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
