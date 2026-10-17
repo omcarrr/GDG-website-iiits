@@ -34,7 +34,7 @@ export default function MemberCard({ member }) {
               loading="lazy"
               width={300}
               height={300}
-              className="aspect-square w-full object-cover"
+              className="aspect-square w-full object-cover object-top"
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
           </div>

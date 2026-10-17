@@ -10,7 +10,7 @@ export const team = [
   {
     name: "Omkar Dhulugade",
     role: "organizer",
-    title: "Club Coordinator / GDG Organizer",
+    title: "Club Coordinator + GDG Organizer",
     domain: null,
     photo: "/images/team/omcarorganizer.jpeg",
     bio: "",
@@ -58,7 +58,7 @@ export const team = [
   {
     name: "Jaynil Panjwani",
     role: "organizer",
-    title: "Organizer — Management",
+    title: "Executive + GDG Organizer",
     domain: "Management",
     photo: "/images/team/jaynilorganizer.jpeg",
     bio: "Interested in emerging technologies, research, and innovation, with a focus on AI-driven solutions, wireless systems, and autonomous vehicle technologies.",
