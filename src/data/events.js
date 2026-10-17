@@ -17,7 +17,7 @@ export const events = [
     details:
       "Chakravyuh is GDG IIITS's flagship event: a multi-round gauntlet where teams fight through DSA puzzles, a timed dev sprint and a rapid-fire tech quiz. Only the sharpest make it to the final round.",
     highlights: ["3 elimination rounds", "Teams from across campus", "Prizes + swag for top teams"],
-    images: ["/images/events/chakra-1.svg", "/images/events/chakra-2.svg"],
+    images: ["/images/events/chakra-1.JPG", "/images/events/chakra-2.JPG"],
     gallery: gallery("chakravyuh-2024", 10),
   },
   {
@@ -31,7 +31,7 @@ export const events = [
     details:
       "A guided sprint through Google Cloud fundamentals and GenAI labs on Google Cloud Skills Boost. Participants earned skill badges, Arcade points and walked away with working deployments.",
     highlights: ["Free Qwiklabs credits", "Skill badges earned", "Live mentor help"],
-    images: ["/images/events/cloud-1.svg", "/images/events/cloud-2.svg"],
+    images: ["/images/events/cloud-1.JPG", "/images/events/cloud-2.JPG"],
     gallery: gallery("cloud-study-jam-2024"),
   },
   {
@@ -45,8 +45,8 @@ export const events = [
     details:
       "A beginner-friendly bootcamp that took students from their first commit to their first pull request — branching, resolving merge conflicts and contributing to a real open-source repo.",
     highlights: ["First PR for most attendees", "Live merge-conflict drills", "Open-source starter list"],
-    images: ["/images/events/git-1.svg", "/images/events/git-2.svg"],
-    gallery: gallery("git-bootcamp-2024", 6),
+    images: ["/images/events/git-1.JPG", "/images/events/git-2.JPG"],
+    gallery: gallery("git-bootcamp-2024", 10),
   },
   {
     slug: "techfest-2025",
@@ -59,7 +59,7 @@ export const events = [
     details:
       "Our campus tech fest packed into one weekend: industry speakers, project demos from every domain team, a late-night build session and plenty of community time.",
     highlights: ["Industry speaker sessions", "Domain team demos", "Overnight build night"],
-    images: ["/images/events/techfest-1.svg", "/images/events/techfest-2.svg"],
+    images: ["/images/events/techfest-1.JPG", "/images/events/techfest-2.JPG"],
     gallery: gallery("techfest-2025", 10),
   },
   {
@@ -73,7 +73,7 @@ export const events = [
     details:
       "A prompt-to-product sprint where teams built working AI apps on the Gemini API and Vertex AI in a single day, then demoed them to a panel of mentors.",
     highlights: ["Gemini API hands-on", "Same-day demos", "Mentor feedback panel"],
-    images: ["/images/events/ai-1.svg", "/images/events/ai-2.svg"],
+    images: ["/images/events/ai-1.JPG", "/images/events/ai-2.JPG"],
     gallery: gallery("build-with-ai-2025"),
   },
   {
@@ -87,7 +87,7 @@ export const events = [
     details:
       "Google's global Solution Challenge, run locally by GDG IIITS. Student teams picked a UN Sustainable Development Goal and built a solution with Google tech, with mentoring through every stage.",
     highlights: ["UN SDG-focused projects", "Mentoring rounds", "Global submission"],
-    images: ["/images/events/solution-1.svg", "/images/events/solution-2.svg"],
+    images: ["/images/events/solution-1.JPG", "/images/events/solution-2.JPG"],
     gallery: gallery("solution-challenge-2025", 8),
   },
 ];
