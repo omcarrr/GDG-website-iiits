@@ -11,8 +11,8 @@ const filters = ["All", "AIML", "Backend", "AppDev", "DevRel"];
 function Card({ member }) {
   // outer div takes the entrance animation, FloatWrap the hover float, MemberCard the CSS flip
   return (
-    <div className="team-card">
-      <FloatWrap float={{ move: 10, tilt: 10 }}>
+    <div className="team-card h-full">
+      <FloatWrap float={{ move: 10, tilt: 10 }} className="h-full">
         <MemberCard member={member} />
       </FloatWrap>
     </div>
