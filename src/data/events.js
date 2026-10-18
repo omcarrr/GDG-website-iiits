@@ -13,28 +13,43 @@ export const events = [
     slug: "intro-session-2026",
     title: "Introductory Session",
     year: "2026",
-    date: "August 2026",
+    date: "Sep 24th, 2026",
     venue: "IIIT Sri City — Main Auditorium",
     tags: ["Community", "Kickoff"],
-    blurb: "Season kickoff: meet the team, the domains and what's coming this year.",
+    blurb:
+      "Season kickoff: meet the team, the domains and what's coming this year.",
     details:
       "The kickoff for the 2026 season. We introduced GDG IIIT Sri City, the domain teams (AI/ML, Backend, App Dev, DevRel), the year's event lineup and how first-years can get involved from day one.",
-    highlights: ["Meet the core team", "Domain walkthroughs", "How to join + Q&A"],
-    images: ["/images/events/intro-session-2026/1.jpg", "/images/events/intro-session-2026/2.jpg"],
-    gallery: gallery("intro-session-2026"),
+    highlights: [
+      "Meet the core team",
+      "Domain walkthroughs",
+      "How to join + Q&A",
+    ],
+    images: [
+      "/images/events/intro-2026-1.webp",
+      "/images/events/intro-2026-2.webp",
+    ],
+    gallery: gallery("intro-2026", 12),
   },
   {
     slug: "git-github-bootcamp-2026",
     title: "Git & GitHub Bootcamp",
     year: "2026",
-    date: "September 2026",
+    date: "October 9th and 10th, 2026",
     venue: "IIIT Sri City — Computer Lab",
     tags: ["Git", "GitHub"],
     blurb: "Hands-on bootcamp: first commit to first pull request.",
     details:
       "A hands-on bootcamp covering version control from scratch — commits, branches, merges and resolving conflicts — ending with every attendee opening their first pull request on GitHub.",
-    highlights: ["Live terminal walkthrough", "Branching + merge-conflict drills", "First PR for every attendee"],
-    images: ["/images/events/git-github-bootcamp-2026/1.jpg", "/images/events/git-github-bootcamp-2026/2.jpg"],
+    highlights: [
+      "Live terminal walkthrough",
+      "Branching + merge-conflict drills",
+      "First PR for every attendee",
+    ],
+    images: [
+      "/images/events/git26-1.webp",
+      "/images/events/git26-2.webp",
+    ],
     gallery: gallery("git-github-bootcamp-2026"),
   },
   {
