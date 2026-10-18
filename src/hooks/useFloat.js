@@ -17,8 +17,12 @@ export function useFloat({ move = 12, tilt = 8 } = {}) {
       const rx = gsap.quickTo(el, "rotationX", { duration: 0.5, ease: "power3" });
       const ry = gsap.quickTo(el, "rotationY", { duration: 0.5, ease: "power3" });
 
+      // Measure on enter, before the card shifts/tilts; measuring the transformed box
+      // on every move made the pointer math feed back on itself and jitter.
+      let r = null;
+      const onEnter = () => { r = el.getBoundingClientRect(); };
       const onMove = (e) => {
-        const r = el.getBoundingClientRect();
+        if (!r) onEnter();
         const px = (e.clientX - r.left) / r.width - 0.5;
         const py = (e.clientY - r.top) / r.height - 0.5;
         qx(px * move * 2);
@@ -26,12 +30,17 @@ export function useFloat({ move = 12, tilt = 8 } = {}) {
         rx(-py * tilt * 2);
         ry(px * tilt * 2);
       };
+      // Return through the same quickTo tweens: an overwrite here used to kill them,
+      // so the card stopped following the pointer after the first hover.
       const onLeave = () => {
-        gsap.to(el, { x: 0, y: 0, rotationX: 0, rotationY: 0, duration: 1, ease: "elastic.out(1, 0.4)", overwrite: true });
+        r = null;
+        qx(0); qy(0); rx(0); ry(0);
       };
+      el.addEventListener("pointerenter", onEnter);
       el.addEventListener("pointermove", onMove);
       el.addEventListener("pointerleave", onLeave);
       return () => {
+        el.removeEventListener("pointerenter", onEnter);
         el.removeEventListener("pointermove", onMove);
         el.removeEventListener("pointerleave", onLeave);
         gsap.set(el, { clearProps: "transform,willChange" });
