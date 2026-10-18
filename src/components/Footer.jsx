@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { sections, scrollToSection } from "../lib/lenis";
 
 export default function Footer() {
   return (
@@ -10,20 +10,21 @@ export default function Footer() {
         </div>
         <div>
           <div className="font-mono2 text-xs font-bold uppercase opacity-60">Navigate</div>
-          <div className="mt-3 flex flex-col gap-2 text-sm font-semibold">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/events" className="hover:underline">Events</Link>
-            <Link to="/team" className="hover:underline">Team</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
+          <div className="mt-3 flex flex-col items-start gap-2 text-sm font-semibold">
+            {sections.map(({ id, label, path }) => (
+              <a key={id} href={path} onClick={(e) => { e.preventDefault(); scrollToSection(id); }} className="hover:underline">
+                {label}
+              </a>
+            ))}
           </div>
         </div>
         <div>
           <div className="font-mono2 text-xs font-bold uppercase opacity-60">Reach us</div>
           <div className="mt-3 flex flex-col gap-2 text-sm font-semibold">
-            <a href="mailto:gdg@iiits.in" className="hover:underline">gdg@iiits.in</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:underline">Instagram</a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
+            <a href="mailto:gdsc@iiits.in" className="hover:underline">gdsc@iiits.in</a>
+            <a href="https://www.instagram.com/gdgiiits/" target="_blank" rel="noreferrer" className="hover:underline">Instagram</a>
+            <a href="https://www.linkedin.com/company/gdg-iiits/posts/?feedView=all" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a>
+            <a href="https://github.com/GDG-IIITS" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
           </div>
         </div>
       </div>

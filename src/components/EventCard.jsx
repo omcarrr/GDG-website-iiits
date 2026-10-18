@@ -1,27 +1,29 @@
 import { useCallback, useState } from "react";
 import EventModal from "./EventModal";
+import { useFloat } from "../hooks/useFloat";
 
 export default function EventCard({ event }) {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
+  const floatRef = useFloat();
 
   return (
     <>
       <article
+        ref={floatRef}
         role="button"
         tabIndex={0}
         aria-haspopup="dialog"
         aria-label={`${event.title} ${event.year} — open details and photos`}
-        data-cursor="View"
         onClick={() => setOpen(true)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(true); }
         }}
-        className="card-shadow w-[78vw] shrink-0 cursor-pointer rounded-2xl border-2 border-black bg-white p-4 transition-transform hover:-translate-y-1 sm:w-[380px]"
+        className="card-shadow h-full w-full cursor-pointer rounded-2xl border-2 border-black bg-white p-4"
       >
         <div className="grid grid-cols-2 gap-2">
           {event.images.map((src, i) => (
-            <div key={i} className="img-placeholder overflow-hidden rounded-xl border-2 border-black">
+            <div key={i} className="img-placeholder aspect-[4/3] overflow-hidden rounded-xl border-2 border-black">
               <img
                 src={src}
                 alt={`${event.title} photo ${i + 1}`}

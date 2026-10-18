@@ -33,11 +33,15 @@ body {
   color: var(--ink);
 }
 
-/* custom cursor: hide native only on fine pointers, app adds class */
-@media (pointer: fine) {
-  .has-custom-cursor, .has-custom-cursor a, .has-custom-cursor button {
-    cursor: none;
-  }
+/* pixel-art Google cursor (public/cursors, 2px-per-pixel PNGs). Native cursor = zero lag. */
+html {
+  cursor: url("/cursors/arrow.png") 0 0, auto;
+}
+a, button, summary, label, select, [role="button"], [role="tab"], .flip-card {
+  cursor: url("/cursors/pointer.png") 9 0, pointer;
+}
+input, textarea, [contenteditable="true"] {
+  cursor: text;
 }
 
 .text-stroke {
@@ -62,7 +66,6 @@ body {
 /* member card flip — both faces share one grid cell so the card fits the taller side */
 .flip-card {
   perspective: 1200px;
-  cursor: pointer;
 }
 .flip-inner {
   display: grid;
@@ -119,4 +122,18 @@ body {
   .flip-hint, .flip-hint-arrow {
     animation: none;
   }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* set by lockScroll() while the preloader is showing */
+html.scroll-locked,
+html.scroll-locked body {
+  overflow: hidden;
+  overscroll-behavior: none;
 }

@@ -1,6 +1,7 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import { gsap, useGSAP } from "../lib/gsap";
+import { scrollToSection } from "../lib/lenis";
+import FloatWrap from "./FloatWrap";
 
 const items = [
   { title: "Workshops", desc: "Git, Web, Android, Cloud — hands-on, beginner friendly.", color: "#4285f4" },
@@ -21,19 +22,21 @@ export default function WhatWeDo() {
     <section ref={root} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
       <div className="flex items-end justify-between">
         <h2 className="font-display text-3xl sm:text-5xl">What we do</h2>
-        <Link to="/events" data-cursor="More" className="font-mono2 rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white">
+        <a href="/events" onClick={(e) => { e.preventDefault(); scrollToSection("events"); }} className="font-mono2 rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white">
           All events →
-        </Link>
+        </a>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {items.map((c) => (
-          <article key={c.title} data-cursor="Open" className="card-shadow rounded-2xl border-2 border-black bg-white p-5 transition-transform hover:-translate-y-2 hover:rotate-1">
-            <div className="img-placeholder flex h-44 items-center justify-center rounded-xl border-2 border-black font-display text-2xl" style={{ background: c.color, color: "#fff" }}>
-              {c.title[0]}
-            </div>
-            <h3 className="font-display mt-4 text-xl">{c.title}</h3>
-            <p className="mt-2 text-sm text-[#5b5b55]">{c.desc}</p>
-          </article>
+          <div key={c.title} className="wwd-card">
+            <FloatWrap as="article" className="card-shadow h-full rounded-2xl border-2 border-black bg-white p-5">
+              <div className="img-placeholder flex h-44 items-center justify-center rounded-xl border-2 border-black font-display text-2xl" style={{ background: c.color, color: "#fff" }}>
+                {c.title[0]}
+              </div>
+              <h3 className="font-display mt-4 text-xl">{c.title}</h3>
+              <p className="mt-2 text-sm text-[#5b5b55]">{c.desc}</p>
+            </FloatWrap>
+          </div>
         ))}
       </div>
     </section>

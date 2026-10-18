@@ -1,4 +1,4 @@
-// Add an event = add an object. Appears on home horizontal + /events automatically.
+// Add an event = add an object. Appears in the home Events section, sorted newest date first.
 // images: 2 cover shots shown on the card. Placeholders live in public/images/events/.
 // gallery: 6-10 photos shown when the card is expanded. Drop them in
 //   public/images/events/<slug>/1.jpg, 2.jpg, … — missing files show a striped placeholder.
@@ -6,6 +6,36 @@
 const gallery = (slug, n = 8) => Array.from({ length: n }, (_, i) => `/images/events/${slug}/${i + 1}.jpg`);
 
 export const events = [
+  // TODO: confirm 2026 dates, venues and copy. Covers/gallery read from
+  // public/images/events/<slug>/ — striped placeholders show until photos are added.
+  {
+    slug: "intro-session-2026",
+    title: "Introductory Session",
+    year: "2026",
+    date: "August 2026",
+    venue: "IIIT Sri City — Main Auditorium",
+    tags: ["Community", "Kickoff"],
+    blurb: "Season kickoff: meet the team, the domains and what's coming this year.",
+    details:
+      "The kickoff for the 2026 season. We introduced GDG IIIT Sri City, the domain teams (AI/ML, Backend, App Dev, DevRel), the year's event lineup and how first-years can get involved from day one.",
+    highlights: ["Meet the core team", "Domain walkthroughs", "How to join + Q&A"],
+    images: ["/images/events/intro-session-2026/1.jpg", "/images/events/intro-session-2026/2.jpg"],
+    gallery: gallery("intro-session-2026"),
+  },
+  {
+    slug: "git-github-bootcamp-2026",
+    title: "Git & GitHub Bootcamp",
+    year: "2026",
+    date: "September 2026",
+    venue: "IIIT Sri City — Computer Lab",
+    tags: ["Git", "GitHub"],
+    blurb: "Hands-on bootcamp: first commit to first pull request.",
+    details:
+      "A hands-on bootcamp covering version control from scratch — commits, branches, merges and resolving conflicts — ending with every attendee opening their first pull request on GitHub.",
+    highlights: ["Live terminal walkthrough", "Branching + merge-conflict drills", "First PR for every attendee"],
+    images: ["/images/events/git-github-bootcamp-2026/1.jpg", "/images/events/git-github-bootcamp-2026/2.jpg"],
+    gallery: gallery("git-github-bootcamp-2026"),
+  },
   {
     slug: "chakravyuh-2024",
     title: "Chakravyuh",
