@@ -22,12 +22,17 @@ what GDG is, what we do, past events (photos), team, contact. Very interactive /
 
 ## 3. Routes
 
-| Route      | Purpose |
-|------------|---------|
-| `/`        | Home: preloader, hero, ticker, about, what-we-do, events horizontal, team preview, CTA, footer |
-| `/events`  | Full archive. Reads same data, auto-generates cards + scroll animation. Add event = add object. |
-| `/team`    | Full roster with domain filter. Anchor `#team` on home previews it. |
-| `/contact` | Official reach-out details + WhatsApp community link. No backend, `mailto:` + invite link. |
+Single-scroll site: one page, navbar smooth-scrolls (Lenis) to sections. Old URLs stay valid and deep-link to their section.
+
+| URL / section | Purpose |
+|---------------|---------|
+| `/` `#home`   | Preloader, hero, ticker, about, what-we-do |
+| `/events` `#events` | Event grid — first 4, then "Show more". Add event = add object. |
+| `/team` `#team` | Full roster with domain filter, flip cards |
+| `/paths` `#paths` | "Pick your path" flow-chart roadmaps (App Dev / Backend / AI/ML × CSE / ECE / AIDS) from `src/data/roadmaps.js` |
+| `/contact` `#contact` | Reach-out details + WhatsApp community link |
+
+All cards float/tilt toward the mouse (`src/hooks/useFloat.js`); sections reveal on scroll (`src/hooks/useSectionReveal.js`).
 
 React Router in `src/routes.jsx`. Keep pages thin, sections in `src/components/`.
 

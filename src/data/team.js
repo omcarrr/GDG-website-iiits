@@ -1,12 +1,21 @@
 // GDG IIITS Team Directory
-// Order: Organizers → Executives → Members grouped by domain.
+// Order: Club Mentor → Organizers → Executives → Members grouped by domain.
+// The mentor card is static (no flip) — only name, title and photo are shown.
 // Current roster includes 27 people. Jaynil Panjwani is an Organizer in Management.
 // Domains used: AIML | Backend | AppDev | DevRel | Management | null (for other leads).
 // Photo paths correspond to files inside public/images/team/.
 // People without a confirmed image use the shared placeholder.
+// socials: linkedin | github | gdg (gdg.community.dev profile) — use "#" until a link is known; it's hidden.
 const ph = "/images/team/placeholder.svg";
 
 export const team = [
+  {
+    name: "Dr. Mallikarjun Reddy",
+    role: "mentor",
+    title: "Club Mentor",
+    domain: null,
+    photo: "/images/team/mentor.jpg", // TODO: add public/images/team/mentor.jpg
+  },
   {
     name: "Omkar Dhulugade",
     role: "organizer",
@@ -17,6 +26,7 @@ export const team = [
     socials: {
       linkedin: "https://www.linkedin.com/in/omkardhulugade",
       github: "https://github.com/omcarrr",
+      gdg: "https://gdg.community.dev/u/omkar_dhanaji/#/about",
     },
   },
   {
@@ -29,6 +39,7 @@ export const team = [
     socials: {
       linkedin: "https://www.linkedin.com/in/tanvi-mudili-b64aa9380/",
       github: "#",
+      gdg: "https://gdg.community.dev/u/mudili2/#/about",
     },
   },
   {
@@ -65,6 +76,7 @@ export const team = [
     socials: {
       linkedin: "https://www.linkedin.com/in/jaynil-panjwani",
       github: "#",
+      gdg: "https://gdg.community.dev/u/myt86g/#/about",
     },
   },
   {
@@ -109,7 +121,8 @@ export const team = [
     role: "member",
     title: "AI/ML",
     domain: "AIML",
-    photo: ph,
+    photo: "/images/team/chahat_sharma.jpeg",
+    photoPosition: "50% 22%", // tall portrait: frame the face instead of the top of the photo
     bio: "Interested in AI/ML, Reinforcement Learning, and Computer Vision, with programming experience in Python, C, C++, and Java. Exploring FastAPI, frontend and backend development, and building innovative solutions through technology.",
     socials: {
       linkedin: "https://www.linkedin.com/in/chahat-sharma-96aa493a7",
@@ -338,6 +351,7 @@ export const team = [
 ];
 
 export const roleLabel = {
+  mentor: "Club Mentor",
   organizer: "Organiser",
   "co-organizer": "Co-Organisers",
   executive: "Executives",

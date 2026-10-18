@@ -33,7 +33,7 @@ export default function EventModal({ event, onClose }) {
 
   return createPortal(
     <div ref={root} className="fixed inset-0 z-[90] flex items-end justify-center sm:items-center sm:p-6" role="dialog" aria-modal="true" aria-labelledby="em-title">
-      <div className="em-backdrop absolute inset-0 bg-black/70" onClick={onClose} data-cursor="Close" />
+      <div className="em-backdrop absolute inset-0 bg-black/70" onClick={onClose} />
       <div
         data-lenis-prevent
         className="em-panel card-shadow relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-t-2xl border-2 border-black bg-[#fffdf6] p-5 sm:rounded-2xl sm:p-8"
@@ -56,7 +56,6 @@ export default function EventModal({ event, onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close"
-            data-cursor="Close"
             className="font-display shrink-0 rounded-full border-2 border-black bg-white px-4 py-2 text-sm hover:bg-black hover:text-white"
           >
             ✕

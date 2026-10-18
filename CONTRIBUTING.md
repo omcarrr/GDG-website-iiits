@@ -24,7 +24,7 @@ Edit `src/data/events.js`, append:
 },
 ```
 
-Put 2 images in `public/images/events/`. It appears on home horizontal + `/events` automatically.
+Put 2 images in `public/images/events/`. It appears in the Events section automatically (newest year first, first 4 shown, rest behind "Show more").
 
 ### Add a team member
 Edit `src/data/team.js`:
@@ -61,3 +61,7 @@ git push origin feat/<what>   # or push to main for small fixes
 ```
 
 Do not commit `node_modules/` or `dist/`.
+
+## Update the "Pick your path" roadmaps
+
+Edit `src/data/roadmaps.js`. Each track (App Dev, Backend, AI/ML) has `branchNotes` per branch (CSE / ECE / AIDS), ordered `stages` (`title`, `time`, `learn`, `skills`, `resources`) and `roles`. The flow chart renders from this data — no component changes needed.

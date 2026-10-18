@@ -1,28 +1,33 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Cursor from "../components/Cursor";
+import { useRef } from "react";
+import { useSectionReveal } from "../hooks/useSectionReveal";
+import FloatWrap from "./FloatWrap";
 
-export default function ContactPage() {
+export default function ContactSection() {
+  const root = useRef(null);
+  useSectionReveal(root);
+
   return (
-    <>
-      <Cursor />
-      <Navbar />
-      <main className="mx-auto max-w-6xl px-4 pb-20 pt-28 sm:px-6">
-        <p className="font-mono2 text-xs font-bold uppercase text-[#5b5b55]">Say hello</p>
-        <h1 className="font-display text-4xl sm:text-6xl">Contact us</h1>
+    <section ref={root} id="contact" className="bg-[#34a853] px-4 py-20 text-white sm:px-6">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="reveal-head font-display max-w-3xl text-4xl leading-tight sm:text-6xl">
+          Have something to build? Let's move it.
+        </h2>
+        <p className="reveal-head mt-4 max-w-md font-medium opacity-90">
+          Stuck on an idea, a project, a club collab — tell us. We make it visible.
+        </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <a
+          <FloatWrap
+            as="a"
             href="https://mail.google.com/mail/?view=cm&fs=1&to=gdsc%40iiits.in"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="Mail"
-            className="card-shadow rounded-2xl border-2 border-black bg-white p-6 hover:-translate-y-1"
+            className="card-shadow block rounded-2xl border-2 border-black bg-white p-6 text-black"
           >
             <div className="font-mono2 text-xs font-bold uppercase opacity-60">Email</div>
             <div className="font-display mt-2 text-2xl">gdsc@iiits.in</div>
             <div className="mt-2 text-sm text-[#5b5b55]">Official reach-out for collabs, talks, sponsorships.</div>
-          </a>
-          <div className="card-shadow rounded-2xl border-2 border-black bg-black p-6 text-white">
+          </FloatWrap>
+          <FloatWrap className="card-shadow rounded-2xl border-2 border-white bg-black p-6 text-white">
             <div className="font-mono2 text-xs font-bold uppercase opacity-60">Campus</div>
             <div className="font-display mt-2 text-2xl">IIIT Sri City</div>
             <div className="mt-2 text-sm opacity-70">Sri City, Andhra Pradesh</div>
@@ -37,20 +42,19 @@ export default function ContactPage() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cursor="Open"
                   className="font-mono2 rounded-full bg-white px-3 py-1 text-xs font-bold uppercase text-black hover:bg-[#fbbc05]"
                 >
                   {s.name}
                 </a>
               ))}
             </div>
-          </div>
+          </FloatWrap>
         </div>
-        <a
+        <FloatWrap
+          as="a"
           href="https://chat.whatsapp.com/FeOB3y0AHZ92HrmhnBhyYm"
           target="_blank"
           rel="noreferrer"
-          data-cursor="Chat"
           className="card-shadow mt-4 flex flex-col gap-3 rounded-2xl border-2 border-black bg-[#25d366] p-6 text-white sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
@@ -69,9 +73,8 @@ export default function ContactPage() {
             </svg>
             Join →
           </span>
-        </a>
-      </main>
-      <Footer />
-    </>
+        </FloatWrap>
+      </div>
+    </section>
   );
 }

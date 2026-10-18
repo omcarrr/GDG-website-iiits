@@ -14,7 +14,7 @@ npm run build
 
 ## Add an event
 
-Append to `src/data/events.js` with 2 images in `public/images/events/`. It appears on home + `/events` automatically.
+Append to `src/data/events.js` with 2 images in `public/images/events/`. It appears in the Events section automatically (first 4 shown, rest behind "Show more").
 
 ## Add a team member
 

@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import { gsap, useGSAP } from "../lib/gsap";
 import { splitChars } from "../utils/splitText";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { scrollToSection } from "../lib/lenis";
 
 export default function Hero({ started }) {
   const root = useRef(null);
@@ -41,7 +41,7 @@ export default function Hero({ started }) {
   }, { scope: root, dependencies: [started, reduced] });
 
   return (
-    <section ref={root} className="relative flex min-h-[96vh] items-center justify-center overflow-hidden px-4 pt-24 opacity-0">
+    <section ref={root} id="home" className="relative flex min-h-[96vh] items-center justify-center overflow-hidden px-4 pb-16 pt-24 opacity-0 sm:pb-20">
       <div className="blob absolute left-[8%] top-[20%] h-24 w-24 rounded-full bg-[#4285f4]" aria-hidden="true" />
       <div className="blob absolute right-[10%] top-[26%] h-16 w-16 rotate-12 bg-[#ea4335]" aria-hidden="true" />
       <div className="blob absolute bottom-[18%] left-[14%] h-14 w-14 rounded-full bg-[#fbbc05]" aria-hidden="true" />
@@ -51,7 +51,7 @@ export default function Hero({ started }) {
         <p className="hero-sub font-mono2 mb-4 inline-block rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase">
           Google Developer Groups • On Campus
         </p>
-        <h1 className="font-display text-[13vw] leading-[0.95] sm:text-8xl md:text-9xl">
+        <h1 className="font-display text-[13vw] leading-[0.95] sm:text-[min(6rem,13vh)] md:text-[min(8rem,15vh)]">
           <span className="hero-line block">BUILD</span>
           <span className="hero-line text-stroke block">LEARN</span>
           <span className="hero-line block">
@@ -63,13 +63,13 @@ export default function Hero({ started }) {
           Chakravyuh to Solution Challenge, we build with Google tech.
         </p>
         <div className="hero-sub mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link to="/events" data-cursor="View" className="hero-pop rounded-full border-2 border-black bg-black px-7 py-3 font-display text-sm text-white transition-transform hover:-translate-y-1">
+          <a href="/events" onClick={(e) => { e.preventDefault(); scrollToSection("events"); }} className="hero-pop rounded-full border-2 border-black bg-black px-7 py-3 font-display text-sm text-white transition-transform hover:-translate-y-1">
             Explore events
-          </Link>
-          <Link to="/contact" data-cursor="Say hi" className="hero-pop rounded-full border-2 border-black bg-[#fbbc05] px-7 py-3 font-display text-sm transition-transform hover:-translate-y-1">
+          </a>
+          <a href="/contact" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }} className="hero-pop rounded-full border-2 border-black bg-[#fbbc05] px-7 py-3 font-display text-sm transition-transform hover:-translate-y-1">
             Join us
-          </Link>
-          <span className="hero-pop font-mono2 rounded-full border-2 border-black bg-white px-4 py-2 text-xs font-bold">▼ scroll</span>
+          </a>
+          <a href="/paths" onClick={(e) => { e.preventDefault(); scrollToSection("paths"); }} className="hero-pop font-mono2 rounded-full border-2 border-black bg-white px-4 py-2 text-xs font-bold transition-transform hover:-translate-y-1">Find your path ↓</a>
         </div>
       </div>
     </section>
