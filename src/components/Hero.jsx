@@ -41,7 +41,7 @@ export default function Hero({ started }) {
   }, { scope: root, dependencies: [started, reduced] });
 
   return (
-    <section ref={root} id="home" className="relative flex min-h-[96vh] items-center justify-center overflow-hidden px-4 pt-24 opacity-0">
+    <section ref={root} id="home" className="relative flex min-h-[96vh] items-center justify-center overflow-hidden px-4 pb-16 pt-24 opacity-0 sm:pb-20">
       <div className="blob absolute left-[8%] top-[20%] h-24 w-24 rounded-full bg-[#4285f4]" aria-hidden="true" />
       <div className="blob absolute right-[10%] top-[26%] h-16 w-16 rotate-12 bg-[#ea4335]" aria-hidden="true" />
       <div className="blob absolute bottom-[18%] left-[14%] h-14 w-14 rounded-full bg-[#fbbc05]" aria-hidden="true" />
@@ -51,7 +51,7 @@ export default function Hero({ started }) {
         <p className="hero-sub font-mono2 mb-4 inline-block rounded-full border-2 border-black bg-white px-4 py-1 text-xs font-bold uppercase">
           Google Developer Groups • On Campus
         </p>
-        <h1 className="font-display text-[13vw] leading-[0.95] sm:text-8xl md:text-9xl">
+        <h1 className="font-display text-[13vw] leading-[0.95] sm:text-[min(6rem,13vh)] md:text-[min(8rem,15vh)]">
           <span className="hero-line block">BUILD</span>
           <span className="hero-line text-stroke block">LEARN</span>
           <span className="hero-line block">
