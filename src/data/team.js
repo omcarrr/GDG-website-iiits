@@ -121,7 +121,8 @@ export const team = [
     role: "member",
     title: "AI/ML",
     domain: "AIML",
-    photo: ph,
+    photo: "/images/team/chahat_sharma.jpeg",
+    photoPosition: "50% 22%", // tall portrait: frame the face instead of the top of the photo
     bio: "Interested in AI/ML, Reinforcement Learning, and Computer Vision, with programming experience in Python, C, C++, and Java. Exploring FastAPI, frontend and backend development, and building innovative solutions through technology.",
     socials: {
       linkedin: "https://www.linkedin.com/in/chahat-sharma-96aa493a7",

@@ -86,6 +86,7 @@ function FlipMemberCard({ member }) {
               width={300}
               height={300}
               className="aspect-square w-full object-cover object-top"
+              style={{ objectPosition: member.photoPosition }}
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
           </div>
