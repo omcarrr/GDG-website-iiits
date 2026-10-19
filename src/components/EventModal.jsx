@@ -77,7 +77,7 @@ export default function EventModal({ event, onClose }) {
               <img
                 src={src}
                 alt={`${event.title} photo ${i + 1}`}
-                loading="lazy"
+                loading="lazy" decoding="async"
                 width={600}
                 height={450}
                 className="aspect-[4/3] h-full w-full object-cover"

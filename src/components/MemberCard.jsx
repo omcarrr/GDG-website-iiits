@@ -38,7 +38,7 @@ function MentorCard({ member }) {
         <img
           src={member.photo}
           alt={member.name}
-          loading="lazy"
+          loading="lazy" decoding="async"
           width={300}
           height={300}
           className="aspect-square w-full object-cover object-top"
@@ -75,6 +75,7 @@ function FlipMemberCard({ member }) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
       }}
       className="flip-card"
+      data-flipped={flipped}
     >
       <div className={`flip-inner ${flipped ? "is-flipped" : ""}`}>
         <div className="flip-face card-shadow flex flex-col rounded-2xl border-2 border-black bg-white p-4">
@@ -82,7 +83,7 @@ function FlipMemberCard({ member }) {
             <img
               src={member.photo}
               alt={member.name}
-              loading="lazy"
+              loading="lazy" decoding="async"
               width={300}
               height={300}
               className="aspect-square w-full object-cover object-top"
@@ -119,12 +120,12 @@ function FlipMemberCard({ member }) {
           </div>
         </div>
 
-        <div className="flip-face flip-back card-shadow flex flex-col rounded-2xl border-2 border-black bg-black p-4 text-white">
+        <div aria-hidden={!flipped} className="flip-face flip-back card-shadow flex flex-col rounded-2xl border-2 border-black bg-black p-4 text-white">
           <span className="h-2 w-10 rounded-full" style={{ background: member.domain ? c : "#fbbc05" }} />
           <h3 className="font-display mt-3 text-base leading-tight">{member.name}</h3>
           <p className="font-mono2 mt-1 text-[11px] font-bold uppercase opacity-60">{member.title}</p>
           {/* bio scrolls inside the card; data-lenis-prevent lets the wheel scroll it instead of the page */}
-          <p data-lenis-prevent className="flip-scroll mt-3 min-h-0 flex-1 overflow-y-auto overscroll-contain whitespace-pre-line pr-1 text-xs leading-relaxed opacity-90 sm:text-sm">{member.bio}</p>
+          <p data-lenis-prevent className="flip-scroll mt-3 min-h-0 flex-1 overflow-y-auto whitespace-pre-line pr-1 text-xs leading-relaxed opacity-90 sm:text-sm">{member.bio}</p>
           <div className="flex shrink-0 flex-wrap gap-2 pt-3">
             {socials.map(([name, url]) => (
               <a

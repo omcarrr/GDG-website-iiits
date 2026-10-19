@@ -68,6 +68,8 @@ input, textarea, [contenteditable="true"] {
 .flip-card {
   height: 100%;
   perspective: 1200px;
+  /* let a finger that starts on a card still scroll the page */
+  touch-action: pan-y;
 }
 .flip-inner {
   position: relative;
@@ -87,6 +89,14 @@ input, textarea, [contenteditable="true"] {
   position: absolute;
   inset: 0;
   transform: rotateY(180deg);
+  /* the hidden back face (and its scrollable bio) must not swallow touches meant for the page */
+  pointer-events: none;
+}
+.is-flipped > .flip-back {
+  pointer-events: auto;
+}
+.flip-scroll {
+  overscroll-behavior-y: auto;
 }
 .flip-scroll {
   scrollbar-width: thin;

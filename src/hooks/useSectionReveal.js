@@ -7,7 +7,8 @@ export function useSectionReveal(root) {
     const el = root.current;
     if (!el) return;
     const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
+    // The scrubbed clip-path repaints the whole section every frame — too heavy for phones, so desktop only.
+    mm.add("(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)", () => {
       gsap.fromTo(el,
         { clipPath: "inset(6% 3% 0% 3% round 40px)" },
         {
@@ -15,6 +16,9 @@ export function useSectionReveal(root) {
           ease: "none",
           scrollTrigger: { trigger: el, start: "top bottom", end: "top 30%", scrub: true },
         });
+      ScrollTrigger.refresh();
+    });
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       const heads = el.querySelectorAll(".reveal-head");
       if (heads.length) {
         gsap.fromTo(heads, { y: 48, autoAlpha: 0 }, {

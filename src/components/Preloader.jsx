@@ -1,5 +1,24 @@
 import { useRef, useState } from "react";
 import { gsap, useGSAP } from "../lib/gsap";
+import { events } from "../data/events";
+import { team } from "../data/team";
+
+// Everything visible in the first pass of cards: event covers + team photos (already downsized).
+const assets = [...new Set([...events.flatMap((e) => e.images ?? []), ...team.map((m) => m.photo)].filter(Boolean))];
+const MAX_WAIT_MS = 7000;
+
+function preloadAssets() {
+  return new Promise((resolve) => {
+    const timer = setTimeout(resolve, MAX_WAIT_MS);
+    Promise.all(
+      assets.map((src) => {
+        const img = new Image();
+        img.src = src;
+        return (img.decode ? img.decode() : Promise.resolve()).catch(() => {});
+      }),
+    ).then(() => { clearTimeout(timer); resolve(); });
+  });
+}
 
 const words = ["BUILD", "LEARN", "INNOVATE", "GDG*"];
 const dots = ["#4285f4", "#ea4335", "#fbbc05", "#34a853"];
@@ -31,12 +50,27 @@ export default function Preloader({ onDone }) {
     });
 
     const counter = { v: 0 };
-    const tl = gsap.timeline({
+    // Exit only once the intro has played AND all images are loaded, whichever is slower.
+    const exit = gsap.timeline({
+      paused: true,
       defaults: { ease: "power2.inOut" },
       onComplete: () => {
         setGone(true);
         onDone?.();
       },
+    });
+    let minDone = false;
+    let ready = false;
+    const tryExit = () => {
+      if (!minDone || !ready) return;
+      if (num.current) num.current.textContent = 100;
+      exit.play();
+    };
+    preloadAssets().then(() => { ready = true; tryExit(); });
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.inOut" },
+      onComplete: () => { minDone = true; tryExit(); },
     });
 
     // cycle hype words while counting
@@ -50,14 +84,15 @@ export default function Preloader({ onDone }) {
     });
 
     tl.to(counter, {
-      v: 100,
+      v: 99,
       duration: 1.6,
       ease: "power2.inOut",
       onUpdate: () => {
         if (num.current) num.current.textContent = Math.round(counter.v);
       },
-    }, 0)
-      // color panels wipe up one by one, then the whole loader lifts
+    }, 0);
+    // color panels wipe up one by one, then the whole loader lifts
+    exit
       .to(".pre-panel", { yPercent: -100, duration: 0.45, ease: "power3.inOut", stagger: 0.08 })
       .to(root.current, { yPercent: -100, duration: 0.6, ease: "hop" }, "-=0.15");
   }, { scope: root });
