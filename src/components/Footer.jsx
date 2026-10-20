@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="font-mono2 mx-auto mt-10 max-w-6xl border-t border-white/20 pt-4 text-xs opacity-60">
-        © 2026 GDG IIIT Sri City • Built with GSAP + ♥ on campus
+        © 2026 GDG IIIT Sri City • build by GDG Team 2026
       </div>
     </footer>
   );

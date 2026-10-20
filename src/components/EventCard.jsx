@@ -21,21 +21,23 @@ export default function EventCard({ event }) {
         }}
         className="card-shadow h-full w-full cursor-pointer rounded-2xl border-2 border-black bg-white p-4"
       >
-        <div className="grid grid-cols-2 gap-2">
-          {event.images.map((src, i) => (
-            <div key={i} className="img-placeholder aspect-[4/3] overflow-hidden rounded-xl border-2 border-black">
-              <img
-                src={src}
-                alt={`${event.title} photo ${i + 1}`}
-                loading="lazy" decoding="async"
-                width={400}
-                height={300}
-                className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-110"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
-            </div>
-          ))}
-        </div>
+        {event.images && event.images.length > 0 && (
+          <div className="grid grid-cols-2 gap-2">
+            {event.images.map((src, i) => (
+              <div key={i} className="img-placeholder aspect-[4/3] overflow-hidden rounded-xl border-2 border-black">
+                <img
+                  src={src}
+                  alt={`${event.title} photo ${i + 1}`}
+                  loading="lazy" decoding="async"
+                  width={400}
+                  height={300}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-110"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
         <div className="mt-4 flex items-center justify-between">
           <h3 className="font-display text-xl">{event.title}</h3>
           <span className="font-mono2 rounded-full bg-black px-3 py-1 text-xs font-bold text-white">{event.year}</span>

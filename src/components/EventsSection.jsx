@@ -53,7 +53,7 @@ export default function EventsSection() {
             <h2 className="reveal-head font-display text-4xl sm:text-6xl">Past events</h2>
           </div>
           <p className="reveal-head max-w-xs text-sm font-medium">
-            {sorted.length} events across {new Set(sorted.map((e) => e.year)).size} seasons. Tap a card for the full story and photos.
+            Workshops, hackathons & study jams across multiple seasons. Tap a card for the full story and photos.
           </p>
         </div>
 
