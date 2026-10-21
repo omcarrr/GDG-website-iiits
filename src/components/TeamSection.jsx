@@ -5,7 +5,7 @@ import { useSectionReveal } from "../hooks/useSectionReveal";
 import MemberCard from "./MemberCard";
 import FloatWrap from "./FloatWrap";
 
-const order = ["mentor", "advisor", "organizer", "co-organizer", "executive", "member"];
+const order = ["organizer", "co-organizer", "executive", "member"];
 const filters = ["All", "AIML", "Backend", "AppDev", "DevRel"];
 
 function Card({ member }) {
@@ -35,6 +35,11 @@ export default function TeamSection() {
   }, { scope: root, dependencies: [filter], revertOnUpdate: true });
 
   const filtered = filter === "All" ? null : team.filter((m) => m.domain === filter);
+
+  // mentor + advisor rendered together as a pair at the top
+  const leadPair = ["mentor", "advisor"].flatMap((role) =>
+    team.filter((m) => m.role === role)
+  );
 
   return (
     <section ref={root} id="team" className="bg-[#fffcf2] py-20">
@@ -69,26 +74,36 @@ export default function TeamSection() {
             {filtered.length === 0 && <p className="mt-6 text-[#5b5b55]">No members yet in {filter}.</p>}
           </div>
         ) : (
-          order.map((role) => {
-            const members = team.filter((m) => m.role === role);
-            if (!members.length) return null;
-            return (
-              <div key={role} className="mt-10">
-                <h3 className="font-mono2 mb-4 inline-block rounded-full bg-black px-4 py-1 text-xs font-bold uppercase text-white">
-                  {roleLabel[role]}
-                </h3>
-                {role === "organizer" && (
-                  <p className="flip-hint font-mono2 mb-4 flex w-fit items-center gap-2 rounded-full border-2 border-black bg-[#ea4335] px-4 py-1.5 text-xs font-bold uppercase text-white shadow-[3px_3px_0_#000]">
-                    Click on the card to flip it{" "}
-                    <span className="flip-hint-arrow" aria-hidden="true">↙</span>
-                  </p>
-                )}
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                  {members.map((m) => <Card key={m.name} member={m} />)}
+          <>
+            {/* Mentor + Advisor side by side */}
+            {leadPair.length > 0 && (
+              <div className="mt-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto">
+                  {leadPair.map((m) => <Card key={m.name} member={m} />)}
                 </div>
               </div>
-            );
-          })
+            )}
+            {order.map((role) => {
+              const members = team.filter((m) => m.role === role);
+              if (!members.length) return null;
+              return (
+                <div key={role} className="mt-10">
+                  <h3 className="font-mono2 mb-4 inline-block rounded-full bg-black px-4 py-1 text-xs font-bold uppercase text-white">
+                    {roleLabel[role]}
+                  </h3>
+                  {role === "organizer" && (
+                    <p className="flip-hint font-mono2 mb-4 flex w-fit items-center gap-2 rounded-full border-2 border-black bg-[#ea4335] px-4 py-1.5 text-xs font-bold uppercase text-white shadow-[3px_3px_0_#000]">
+                      Click on the card to flip it{" "}
+                      <span className="flip-hint-arrow" aria-hidden="true">↙</span>
+                    </p>
+                  )}
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                    {members.map((m) => <Card key={m.name} member={m} />)}
+                  </div>
+                </div>
+              );
+            })}
+          </>
         )}
       </div>
     </section>
