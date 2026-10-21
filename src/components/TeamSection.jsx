@@ -5,7 +5,7 @@ import { useSectionReveal } from "../hooks/useSectionReveal";
 import MemberCard from "./MemberCard";
 import FloatWrap from "./FloatWrap";
 
-const order = ["mentor", "organizer", "co-organizer", "executive", "member"];
+const order = ["mentor", "advisor", "organizer", "co-organizer", "executive", "member"];
 const filters = ["All", "AIML", "Backend", "AppDev", "DevRel"];
 
 function Card({ member }) {

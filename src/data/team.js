@@ -17,6 +17,18 @@ export const team = [
     photo: "/images/team/mentor.jpg", // TODO: add public/images/team/mentor.jpg
   },
   {
+    name: "Vanya Awasthi",
+    role: "advisor",
+    title: "Club Advisor",
+    domain: null,
+    photo: "/images/team/vanya_Awasthi.jpeg",
+    bio: "GDG IIIT Sri City is a place where students come together to learn, explore new technologies, share ideas, and build exciting things. As the Club Advisor, I'm happy to be part of a community that encourages students to try new things, learn from each other, and grow together.\n\nThrough workshops, bootcamps, and hands-on sessions, we aim to make technology more accessible and give students opportunities to turn their ideas into reality. I believe that the best way to learn is by building, experimenting, and working together.\n\nI'm excited to see what our members will create, the ideas they will bring to life, and how our community will continue to grow. Here's to learning together, building together, and making a difference!",
+    socials: {
+      linkedin: "#",
+      github: "#",
+    },
+  },
+  {
     name: "Omkar Dhulugade",
     role: "organizer",
     title: "Club Coordinator + GDG Organizer",
@@ -352,6 +364,7 @@ export const team = [
 
 export const roleLabel = {
   mentor: "Club Mentor",
+  advisor: "Club Advisor",
   organizer: "Organiser",
   "co-organizer": "Co-Organisers",
   executive: "Executives",
